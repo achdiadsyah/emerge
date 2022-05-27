@@ -13,7 +13,7 @@ License: For each use you must have a valid license purchased only from above li
 <html lang="en">
 	<!--begin::Head-->
 	<head><base href="../../../">
-		<title>Investor - Register Page</title>
+		<title>Investor - Login Page</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 		<meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
@@ -84,10 +84,10 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
                                 <div class="mb-10 text-left">
 									<!--begin::Link-->
-									<div class="text-dark fw-bold fs-4">Welcome!
+									<div class="text-dark fw-bold fs-4">Hello, Investor
 									<!--end::Link-->
                                     <!--begin::Link-->
-									<div class="text-gray-400 fw-bold fs-4">Sign up and find a great Startup
+									<div class="text-gray-400 fw-bold fs-4">Login to continue
 									<!--end::Link-->
 								</div>
 								<!--end::Heading-->
@@ -120,25 +120,28 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Wrapper-->
 								</div>
 								<!--end::Input group=-->
-								<!--begin::Input group-->
-								<div class="fv-row mb-5">
-									<label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
-									<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="confirm-password" autocomplete="off" />
-								</div>
-								<!--end::Input group-->
-                                <!--begin::Input group-->
-								<div class="fv-row mb-7">
-									<label class="form-label fw-bolder text-dark fs-6">Referral Name (Optional)</label>
-									<input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="email" autocomplete="off" />
-								</div>
-								<!--end::Input group-->
 								<!--begin::Actions-->
 								<div class="text-center">
-									<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary w-100 mb-5">
-										<span class="indicator-label">Sign Up as Investor</span>
+                                    <!--begin::Wrapper-->
+									<div class="d-flex flex-stack mb-2">
+										<!--begin::Label-->
+										<label class="form-check form-check-custom form-check-solid form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="toc" value="1" />
+                                            <span class="form-check-label fw-bold text-gray-700">Remember Me</span>
+                                        </label>
+										<!--end::Label-->
+										<!--begin::Link-->
+										<a href="#" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+										<!--end::Link-->
+									</div>
+									<!--end::Wrapper-->
+									<!--begin::Submit button-->
+									<button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
+										<span class="indicator-label">Login</span>
 										<span class="indicator-progress">Please wait...
 										<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 									</button>
+									<!--end::Submit button-->
 								</div>
 								<!--end::Actions-->
 							</form>
@@ -152,7 +155,7 @@ License: For each use you must have a valid license purchased only from above li
 					<div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
                         <div class="mb-10 text-center">
                             <!--begin::Login-->
-                            <div class="text-gray-400 fw-bold fs-4">Have an Account? <a href="{{ route('investor.login') }}" class="ms-1 link-primary">Login Now</a>
+                            <div class="text-gray-400 fw-bold fs-4">Don't Have Account? <a href="{{ route('investor.register') }}" class="ms-1 link-primary">Sign Up Now</a>
                             <!--end::Login-->
                         </div>
 					</div>
