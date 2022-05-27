@@ -48,7 +48,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Content-->
 						<div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
 							<!--begin::Logo-->
-							<a href="{{ url('/') }}" class="py-9 mb-5">
+							<a href="{{ route('home') }}" class="py-9 mb-5">
 								<img alt="Logo" src="{{ asset('assets/media/logos/logo-2.svg') }}" class="h-60px" />
 							</a>
 							<!--end::Logo-->
@@ -152,7 +152,7 @@ License: For each use you must have a valid license purchased only from above li
 					<div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
                         <div class="mb-10 text-center">
                             <!--begin::Login-->
-                            <div class="text-gray-400 fw-bold fs-4">Have an Account? <a href="{{ url('investor/login') }}" class="ms-1 link-primary">Login Now</a>
+                            <div class="text-gray-400 fw-bold fs-4">Have an Account? <a href="{{ route('investor-login') }}" class="ms-1 link-primary">Login Now</a>
                             <!--end::Login-->
                         </div>
 					</div>
