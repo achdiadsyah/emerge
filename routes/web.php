@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::view('/investor/register', 'investor.register');
+Route::view('/investor/login', 'investor.login');
