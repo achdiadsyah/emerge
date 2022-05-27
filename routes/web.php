@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('dashboard');
 
-Route::prefix('investor')->name('investor-')->group(function(){
+Route::prefix('investor')->name('investor.')->group(function(){
     Route::view('register', 'investor.register')->name('register');
     Route::view('login', 'investor.login')->name('login');
 });
