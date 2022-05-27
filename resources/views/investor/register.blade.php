@@ -48,8 +48,8 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Content-->
 						<div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
 							<!--begin::Logo-->
-							<a href="../../demo2/dist/index.html" class="py-9 mb-5">
-								<img alt="Logo" src="assets/media/logos/logo-2.svg" class="h-60px" />
+							<a href="{{ url('/') }}" class="py-9 mb-5">
+								<img alt="Logo" src="{{ asset('assets/media/logos/logo-2.svg') }}" class="h-60px" />
 							</a>
 							<!--end::Logo-->
 							<!--begin::Title-->
@@ -134,7 +134,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Input group-->
 								<!--begin::Actions-->
 								<div class="text-center">
-									<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary">
+									<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary w-100 mb-5">
 										<span class="indicator-label">Submit</span>
 										<span class="indicator-progress">Please wait...
 										<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>

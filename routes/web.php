@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/investor/register', 'register.investor');
+Route::view('/investor/register', 'investor.register');
