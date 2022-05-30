@@ -29,4 +29,3 @@ Route::prefix('investor')->name('investor.')->group(function(){
 });
 
 Auth::routes();
-

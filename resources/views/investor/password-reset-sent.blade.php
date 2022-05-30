@@ -15,28 +15,32 @@
 		<form class="form w-100" novalidate="novalidate" id="kt_sign_up_form">
 			<!--begin::Heading-->
 			<div class="mb-10 text-left">
+				<!--begin::Logo-->
+				<!-- <img alt="Logo" src="{{ asset('assets/media/logos/emerge-logo.png') }}" class="h-40px" /> -->
+				<!--end::Logo-->
+			</div>
+			<div class="mb-10 text-left">
 				<!--begin::Link-->
-				<div class="text-dark fw-bold fs-4">First, let's verify your email
+				<div class="text-dark fw-bold fs-4">Thanks, check your email for <br>instructions to reset your password
 				<!--end::Link-->
 				<!--begin::Link-->
-				<div class="text-gray-400 fw-bold fs-4">Check John.snow@gmail.com to verify your account and get started.
+				<div class="text-gray-400 fw-bold fs-4">If you haven't received an email in 5 minutes, check your <br>spam or <a href="{{ route('investor.password-reset-request') }}">resend</a>
 				<!--end::Link-->
 			</div>
 			<!--end::Heading-->
-			<br>								
+			<br>
+			<br>
+			<br>
+			<!--begin::Input group-->
+			<!--end::Input group-->
 			<!--begin::Actions-->
-			<div class="text-center">
-				<!--begin::Submit button-->
-				<button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
-					<span class="indicator-label">Resend Verification Email</span>
-					<span class="indicator-progress">Please wait...
-					<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-				</button>
-				<!--end::Submit button-->
-			</div>
 			<!--end::Actions-->
 		</form>
 		<!--end::Form-->
+		<div class="mb-10 text-center">
+		<!--begin::Login-->
+		<!--end::Login-->
+	</div>
 		
 	</div>
 	<!--end::Wrapper-->
