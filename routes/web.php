@@ -15,19 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('dashboard');
+
 
 Route::prefix('investor')->name('investor.')->group(function(){
-
-    Route::view('register', 'investor.register')->name('register');
     Route::view('register', 'investor.register')->name('register');
     Route::view('login', 'investor.login')->name('login');
-    Route::view('login', 'investor.login')->name('login');
     Route::view('email-confirmation', 'investor.email-confirmation')->name('email-confirmation');
-    Route::view('email-confirmation', 'investor.email-confirmation')->name('email-confirmation');
-
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
