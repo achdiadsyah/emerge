@@ -27,3 +27,6 @@ Route::prefix('investor')->name('investor.')->group(function(){
     Route::view('password-reset-form', 'investor.password-reset-form', ['title' => 'Investor - Password Reset'])->name('password-reset-form');
     Route::view('password-reset-success', 'investor.password-reset-success', ['title' => 'Investor - Password Reset'])->name('password-reset-success');
 });
+
+Auth::routes();
+
