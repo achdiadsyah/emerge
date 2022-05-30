@@ -20,8 +20,7 @@ return new class extends Migration
             $table->char('id_card_photo', 50);
             $table->char('npwp_photo', 50);
             $table->char('phone_number', 20);
-            $table->char('address_1');
-            $table->char('address_2')->nullable();
+            $table->char('address');
             $table->foreignId('province_id');
             $table->foreignId('city_id');
             $table->foreignId('district_id');
