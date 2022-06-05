@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('villages', function (Blueprint $table) {
-            $table->primary('district_id');
+            $table->id();
+            $table->foreignId('district_id');
             $table->string('name');
             $table->timestamps();
         });

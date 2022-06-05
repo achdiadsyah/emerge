@@ -1,0 +1,11 @@
+.here{
+    background: rgba(255, 67, 67, 0.1);
+    border-radius: 6px;
+}
+.here .menu-title{
+    color: #FA5454 !important;
+}
+.menu-item:hover{
+    background: rgba(255, 67, 67, 0.1);
+    border-radius: 6px;
+}
