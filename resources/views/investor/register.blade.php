@@ -19,7 +19,7 @@
 				<img alt="Logo" src="{{ asset('assets/media/logos/emerge-logo.png') }}" class="h-40px" />
 				<!--end::Logo-->
 			</div>
-			<div class="mb-10 text-left">
+			<div class="mb-5 text-left">
 				<!--begin::Link-->
 				<div class="text-dark fw-bold fs-4">Welcome!
 				<!--end::Link-->
@@ -28,11 +28,8 @@
 				<!--end::Link-->
 			</div>
 			<!--end::Heading-->
-			<br>
-			<br>
-			<br>
 			<!--begin::Input group-->
-			<div class="fv-row mb-7">
+			<div class="fv-row mt-5 mb-7">
 				<label class="form-label fw-bolder text-dark fs-6">Email</label>
 				<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email" autocomplete="off" />
 			</div>
@@ -71,7 +68,7 @@
 			<!--end::Input group-->
 			<!--begin::Actions-->
 			<div class="text-center">
-				<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary w-100 mb-5">
+				<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-danger w-100 mb-5">
 					<span class="indicator-label">Sign Up as Investor</span>
 					<span class="indicator-progress">Please wait...
 					<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -89,7 +86,7 @@
 <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
 	<div class="mb-10 text-center">
 		<!--begin::Login-->
-		<div class="text-gray-400 fw-bold fs-4">Have an Account? <a href="{{ route('investor.login') }}" class="ms-1 link-primary">Login Now</a>
+		<div class="text-gray-400 fw-bold fs-4">Have an Account? <a href="{{ route('investor.login') }}" class="ms-1 link-danger">Login Now</a>
 		<!--end::Login-->
 	</div>
 </div>

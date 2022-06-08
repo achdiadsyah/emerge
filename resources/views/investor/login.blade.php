@@ -9,6 +9,7 @@
 @endpush
 <!--begin::Content-->
 <div class="d-flex flex-center flex-column flex-column-fluid">
+	
 	<!--begin::Wrapper-->
 	<div class="w-lg-600px p-10 p-lg-15 mx-auto">
 		<!--begin::Form-->
@@ -29,8 +30,6 @@
 			</div>
 			<!--end::Heading-->
 			<br>
-			<br>
-			<br>
 			<!--begin::Input group-->
 			<div class="fv-row mb-7">
 				<label class="form-label fw-bolder text-dark fs-6">Email</label>
@@ -38,7 +37,7 @@
 			</div>
 			<!--end::Input group-->
 			<!--begin::Input group-->
-			<div class="mb-10 fv-row" data-kt-password-meter="true">
+			<div class="mb-5 fv-row" data-kt-password-meter="true">
 				<!--begin::Wrapper-->
 				<div class="mb-1">
 					<!--begin::Label-->
@@ -60,7 +59,7 @@
 			<!--begin::Actions-->
 			<div class="text-center">
 				<!--begin::Wrapper-->
-				<div class="d-flex flex-stack mb-2">
+				<div class="d-flex flex-stack mb-5">
 					<!--begin::Label-->
 					<label class="form-check form-check-custom form-check-solid form-check-inline">
 						<input class="form-check-input" type="checkbox" name="toc" value="1" />
@@ -73,7 +72,7 @@
 				</div>
 				<!--end::Wrapper-->
 				<!--begin::Submit button-->
-				<button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
+				<button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-danger w-100 mb-5">
 					<span class="indicator-label">Login</span>
 					<span class="indicator-progress">Please wait...
 					<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -92,7 +91,7 @@
 <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
 	<div class="mb-10 text-center">
 		<!--begin::Login-->
-		<div class="text-gray-400 fw-bold fs-4">Don't Have Account? <a href="{{ route('investor.register') }}" class="ms-1 link-primary">Sign Up Now</a>
+		<div class="text-gray-400 fw-bold fs-4">Don't Have Account? <a href="{{ route('investor.register') }}" class="ms-1 link-danger">Sign Up Now</a>
 		<!--end::Login-->
 	</div>
 </div>

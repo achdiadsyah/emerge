@@ -24,7 +24,7 @@
 				<div class="text-dark fw-bold fs-4">Thanks, check your email for <br>instructions to reset your password
 				<!--end::Link-->
 				<!--begin::Link-->
-				<div class="text-gray-400 fw-bold fs-4">If you haven't received an email in 5 minutes, check your <br>spam or <a href="{{ route('investor.password-reset-request') }}">resend</a>
+				<div class="text-gray-400 fw-bold fs-4">If you haven't received an email in 5 minutes, check your <br>spam or <a href="{{ route('investor.login') }}" class="ms-1 link-danger">Resend</a>
 				<!--end::Link-->
 			</div>
 			<!--end::Heading-->
