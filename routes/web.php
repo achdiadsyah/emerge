@@ -28,5 +28,5 @@ Route::prefix('investor')->name('investor.')->group(function(){
     Route::view('password-reset-success', 'investor.password-reset-success', ['title' => 'Investor - Password Reset'])->name('password-reset-success');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
