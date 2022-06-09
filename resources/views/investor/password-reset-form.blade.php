@@ -34,7 +34,7 @@
 			<!--begin::Input group-->
 			<div class="fv-row mb-7">
 				<label class="form-label fw-bolder text-dark fs-6">Email</label>
-				<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email" autocomplete="off" disabled />
+				<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email" value="bagoesmuliawans@gmail.com" autocomplete="off" disabled />
 			</div>
 			<!--end::Input group-->
 			<!--begin::Input group-->
@@ -65,7 +65,7 @@
 			<!--end::Input group-->
 			<!--begin::Actions-->
 			<div class="text-center">
-				<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary w-100 mb-5">
+				<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-danger w-100 mb-5">
 					<span class="indicator-label">Continue</span>
 					<span class="indicator-progress">Please wait...
 					<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -76,7 +76,7 @@
 		<!--end::Form-->
 		<div class="mb-10 text-center">
 		<!--begin::Login-->
-		<div class="text-gray-400 fw-bold fs-4"><a href="{{ route('investor.login') }}" class="ms-1 link-primary">Return to sign in</a>
+		<div class="text-gray-400 fw-bold fs-4"><a href="{{ route('investor.login') }}" class="ms-1 link-danger">Return to sign in</a>
 		<!--end::Login-->
 	</div>
 		

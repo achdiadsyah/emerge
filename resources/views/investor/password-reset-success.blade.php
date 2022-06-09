@@ -30,7 +30,7 @@
 			<!--end::Heading-->
 			<!--begin::Actions-->
 			<div class="text-center">
-				<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary w-100 mb-5">
+				<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-danger w-100 mb-5">
 					<span class="indicator-label">Back to Login Page</span>
 					<span class="indicator-progress">Please wait...
 					<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
