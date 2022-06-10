@@ -16,15 +16,16 @@ return new class extends Migration
         Schema::create('investors', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignId('user_id');
+            $table->string('name');
             $table->char('id_card_number', 50);
-            $table->char('id_card_photo', 50);
-            $table->char('npwp_photo', 50);
+            $table->string('id_card_photo', 255);
+            $table->string('npwp_photo', 255);
             $table->char('phone_number', 20);
+            $table->string('referral_name', 255);
             $table->char('address');
+            $table->foreignId('country_id');
             $table->foreignId('province_id');
             $table->foreignId('city_id');
-            $table->foreignId('district_id');
-            $table->foreignId('village_id');
             $table->foreignId('annual_income_id');
             $table->foreignId('reason_to_invest_id');
             $table->boolean('individual_investor');

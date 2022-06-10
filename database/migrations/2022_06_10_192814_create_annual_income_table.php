@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('districts', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('city_id');
+        Schema::create('annual_income', function (Blueprint $table) {
+            $table->uuid('id')->primary();
             $table->string('name');
+            $table->integer('order_number');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('districts');
+        Schema::dropIfExists('annual_income');
     }
 };
