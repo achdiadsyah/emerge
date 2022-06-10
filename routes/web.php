@@ -9,7 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
 
-use App\Http\Controllers\Auth;
+use App\Http\Controllers\Investor\RegisterController as InvestorRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::prefix('investor')->name('investor.')->group(function(){
-    Route::view('register', 'investor.register',['title' => 'Investor - Register'])->name('register');
+    Route::get('register', [InvestorRegisterController::class, 'index'])->name('register');
     Route::view('login', 'investor.login', ['title' => 'Investor - Login'])->name('login');
     Route::view('email-confirmation', 'investor.email-confirmation', ['title' => 'Investor - Email Confirmation'])->name('email-confirmation');
     Route::view('password-reset-request', 'investor.password-reset-request', ['title' => 'Investor - Password Reset Request'])->name('password-reset-request');
@@ -46,7 +46,7 @@ Route::prefix('startup')->name('startup.')->group(function () {
 });
 
 Route::prefix('auth')->name('auth.')->group(function () {
-    Route::post('register', [Auth\RegisterController::class, 'register'])->name('register');
+    Route::post('register', [RegisterController::class, 'register'])->name('register');
     Route::post('login', [Auth\LoginController::class, 'login'])->name('login');
     Route::post('logout', [Auth\LoginController::class, 'logout'])->name('logout');
     Route::post('password-confirm', [Auth\ConfirmPasswordController::class, 'confirm'])->name('password-confirm');
