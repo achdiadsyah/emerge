@@ -2,6 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Auth\ConfirmPasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\VerificationController;
+
+use App\Http\Controllers\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +26,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('dashboard');
 
-
 Route::prefix('investor')->name('investor.')->group(function(){
     Route::view('register', 'investor.register',['title' => 'Investor - Register'])->name('register');
     Route::view('login', 'investor.login', ['title' => 'Investor - Login'])->name('login');
@@ -29,4 +37,20 @@ Route::prefix('investor')->name('investor.')->group(function(){
     Route::view('dashboard', 'investor.dashboard', ['title' => 'Investor - Dashboard'])->name('dashboard');
 });
 
-Auth::routes();
+Route::prefix('admin')->name('admin.')->group(function () {
+    // Work in progress
+});
+
+Route::prefix('startup')->name('startup.')->group(function () {
+    // Work in progress
+});
+
+Route::prefix('auth')->name('auth.')->group(function () {
+    Route::post('register', [Auth\RegisterController::class, 'register'])->name('register');
+    Route::post('login', [Auth\LoginController::class, 'login'])->name('login');
+    Route::post('logout', [Auth\LoginController::class, 'logout'])->name('logout');
+    Route::post('password-confirm', [Auth\ConfirmPasswordController::class, 'confirm'])->name('password-confirm');
+    Route::post('password-email', [Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password-email');
+    Route::post('password-reset', [Auth\ResetPasswordController::class, 'reset'])->name('password-reset');
+});
+
