@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Investor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class AuthController extends Controller
 {
     public function index(){
         $data=array(
-            'title' => 'Investor Register Page'
+            'title' => 'Investor Login Page'
         );
-        return view('Investor.register', $data);
+        return view('Investor.login', $data);
     }
 }
+

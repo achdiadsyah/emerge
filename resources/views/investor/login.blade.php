@@ -13,7 +13,7 @@
 	<!--begin::Wrapper-->
 	<div class="w-lg-600px p-10 p-lg-15 mx-auto">
 		<!--begin::Form-->
-		<form class="form w-100" novalidate="novalidate" id="kt_sign_up_form">
+		<form class="form w-100" novalidate="novalidate" method="POST" method="POST" action="{{ route('auth.login') }}">
 			<!--begin::Heading-->
 			<div class="mb-10 text-left">
 				<!--begin::Logo-->
@@ -30,10 +30,18 @@
 			</div>
 			<!--end::Heading-->
 			<br>
+			@csrf
 			<!--begin::Input group-->
 			<div class="fv-row mb-7">
 				<label class="form-label fw-bolder text-dark fs-6">Email</label>
-				<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email" autocomplete="off" />
+				<input class="form-control form-control-lg form-control-solid" type="email" placeholder="user@email.com" name="email" {{ old('email') }} autocomplete="off" />
+				@error('email')
+				<div class="fv-plugins-message-container invalid-feedback">
+					<div data-field="email" data-validator="notEmpty">
+						{{ $message }}
+					</div>
+				</div>
+				@enderror	
 			</div>
 			<!--end::Input group-->
 			<!--begin::Input group-->
@@ -45,13 +53,21 @@
 					<!--end::Label-->
 					<!--begin::Input wrapper-->
 					<div class="position-relative mb-3">
-						<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password" autocomplete="off" />
+						<input class="form-control form-control-lg form-control-solid" type="password" placeholder="Password" name="password" autocomplete="off" />
 						<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
 							<i class="bi bi-eye-slash fs-2"></i>
 							<i class="bi bi-eye fs-2 d-none"></i>
 						</span>
+						@error('password')
+						<div class="fv-plugins-message-container invalid-feedback">
+							<div data-field="password" data-validator="notEmpty">
+								{{ $message }}
+							</div>
+						</div>
+						@enderror	
 					</div>
 					<!--end::Input wrapper-->
+					
 				</div>
 				<!--end::Wrapper-->
 			</div>
@@ -72,7 +88,7 @@
 				</div>
 				<!--end::Wrapper-->
 				<!--begin::Submit button-->
-				<button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-danger w-100 mb-5">
+				<button type="submit" class="btn btn-lg btn-danger w-100 mb-5">
 					<span class="indicator-label">Login</span>
 					<span class="indicator-progress">Please wait...
 					<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
