@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('annual_income', function (Blueprint $table) {
+        Schema::create('annual_incomes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
             $table->integer('order_number');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('annual_income');
+        Schema::dropIfExists('annual_incomes');
     }
 };

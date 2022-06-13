@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('startup', function (Blueprint $table) {
+        Schema::create('startups', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignId('user_id');
             $table->string('name', 255);
@@ -42,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('startup');
+        Schema::dropIfExists('startups');
     }
 };
