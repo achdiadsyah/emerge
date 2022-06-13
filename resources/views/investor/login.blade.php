@@ -13,7 +13,7 @@
 	<!--begin::Wrapper-->
 	<div class="w-lg-600px p-10 p-lg-15 mx-auto">
 		<!--begin::Form-->
-		<form class="form w-100" novalidate="novalidate" method="POST" method="POST" action="{{ route('auth.login') }}">
+		<form class="form w-100" novalidate="novalidate" method="POST" action="{{ route('auth.login') }}">
 			<!--begin::Heading-->
 			<div class="mb-10 text-left">
 				<!--begin::Logo-->
