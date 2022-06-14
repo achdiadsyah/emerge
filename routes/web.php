@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
 
+use App\Http\Controllers\Investor\AuthController as InvestorAuthController;
 use App\Http\Controllers\Investor\RegisterController as InvestorRegisterController;
 
 /*
@@ -27,8 +28,8 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::prefix('investor')->name('investor.')->group(function(){
+    Route::get('login', [InvestorAuthController::class, 'index'])->name('login');
     Route::get('register', [InvestorRegisterController::class, 'index'])->name('register');
-    Route::view('login', 'investor.login', ['title' => 'Investor - Login'])->name('login');
     Route::view('email-confirmation', 'investor.email-confirmation', ['title' => 'Investor - Email Confirmation'])->name('email-confirmation');
     Route::view('password-reset-request', 'investor.password-reset-request', ['title' => 'Investor - Password Reset Request'])->name('password-reset-request');
     Route::view('password-reset-sent', 'investor.password-reset-sent', ['title' => 'Investor - Password Reset Request'])->name('password-reset-sent');
