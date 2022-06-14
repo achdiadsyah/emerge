@@ -27,7 +27,7 @@ return new class extends Migration
             $table->foreignId('province_id');
             $table->foreignId('city_id');
             $table->foreignId('annual_income_id');
-            $table->foreignId('reason_to_invest_id');
+            $table->foreignId('investing_reason_id');
             $table->boolean('individual_investor');
             $table->timestamps();
         });

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reason_to_invests', function (Blueprint $table) {
+        Schema::create('investing_reasons', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
             $table->integer('order_number');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reason_to_invests');
+        Schema::dropIfExists('investing_reasons');
     }
 };
