@@ -102,7 +102,7 @@ class RegisterController extends Controller
             'role_id' => $role_id,
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'referral' => $data['referral'],
+            'referral' => $data['referral'] ? $data['referral'] : null,
         ]);
     }
 }
