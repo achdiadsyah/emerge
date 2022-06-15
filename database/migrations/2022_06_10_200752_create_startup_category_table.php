@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('villages', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('district_id');
+        Schema::create('startup_categorys', function (Blueprint $table) {
+            $table->uuid('id')->primary();
             $table->string('name');
+            $table->boolean('is_shown');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('villages');
+        Schema::dropIfExists('startup_categorys');
     }
 };
