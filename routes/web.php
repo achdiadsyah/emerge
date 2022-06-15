@@ -24,18 +24,23 @@ use App\Http\Controllers\Investor\RegisterController as InvestorRegisterControll
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('dashboard');
+    // return view('welcome');
+    return redirect()->route('investor.login');
+})->name('home');
 
 Route::prefix('investor')->name('investor.')->group(function(){
-    Route::get('login', [InvestorAuthController::class, 'index'])->name('login');
-    Route::get('register', [InvestorRegisterController::class, 'index'])->name('register');
-    Route::view('email-confirmation', 'investor.email-confirmation', ['title' => 'Investor - Email Confirmation'])->name('email-confirmation');
-    Route::view('password-reset-request', 'investor.password-reset-request', ['title' => 'Investor - Password Reset Request'])->name('password-reset-request');
-    Route::view('password-reset-sent', 'investor.password-reset-sent', ['title' => 'Investor - Password Reset Request'])->name('password-reset-sent');
-    Route::view('password-reset-form', 'investor.password-reset-form', ['title' => 'Investor - Password Reset'])->name('password-reset-form');
-    Route::view('password-reset-success', 'investor.password-reset-success', ['title' => 'Investor - Password Reset'])->name('password-reset-success');
-    Route::view('dashboard', 'investor.dashboard', ['title' => 'Investor - Dashboard'])->name('dashboard');
+    Route::middleware('guest')->group(function(){
+        Route::get('login', [InvestorAuthController::class, 'index'])->name('login');
+        Route::get('register', [InvestorRegisterController::class, 'index'])->name('register');
+        Route::view('email-confirmation', 'investor.email-confirmation', ['title' => 'Investor - Email Confirmation'])->name('email-confirmation');
+        Route::view('password-reset-request', 'investor.password-reset-request', ['title' => 'Investor - Password Reset Request'])->name('password-reset-request');
+        Route::view('password-reset-sent', 'investor.password-reset-sent', ['title' => 'Investor - Password Reset Request'])->name('password-reset-sent');
+        Route::view('password-reset-form', 'investor.password-reset-form', ['title' => 'Investor - Password Reset'])->name('password-reset-form');
+        Route::view('password-reset-success', 'investor.password-reset-success', ['title' => 'Investor - Password Reset'])->name('password-reset-success');
+    });
+    Route::middleware('investor')->group(function(){
+        Route::view('dashboard', 'investor.dashboard', ['title' => 'Investor - Dashboard'])->name('dashboard');
+    });
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -48,8 +53,8 @@ Route::prefix('startup')->name('startup.')->group(function () {
 
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('register', [RegisterController::class, 'register'])->name('register');
-    Route::post('login', [Auth\LoginController::class, 'login'])->name('login');
-    Route::post('logout', [Auth\LoginController::class, 'logout'])->name('logout');
+    Route::post('login', [LoginController::class, 'login'])->name('login');
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     Route::post('password-confirm', [Auth\ConfirmPasswordController::class, 'confirm'])->name('password-confirm');
     Route::post('password-email', [Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password-email');
     Route::post('password-reset', [Auth\ResetPasswordController::class, 'reset'])->name('password-reset');

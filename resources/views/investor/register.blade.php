@@ -72,7 +72,7 @@
 			<!--begin::Input group-->
 			<div class="fv-row mb-5">
 				<label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
-				<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password_confirmation" autocomplete="off" required/>
+				<input class="form-control form-control-lg form-control-solid" type="password" placeholder="Password Confirmation" name="password_confirmation" autocomplete="off" required/>
 				@error('password_confirmation')
 				<div class="fv-plugins-message-container invalid-feedback">
 					<div data-field="password_confirmation" data-validator="notEmpty">

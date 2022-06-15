@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<!--
-Author: Keenthemes
-Product Name: Metronic - Bootstrap 5 HTML, VueJS, React, Angular & Laravel Admin Dashboard Theme
-Purchase: https://1.envato.market/EA4JP
-Website: http://www.keenthemes.com
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
 <html lang="en">
 	<!--begin::Head-->
 	<head><base href="">
@@ -109,7 +98,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center ms-1 ms-lg-3">
 										<!--begin::Theme mode docs-->
 										<div class="menu-link py-3">
-											<span class="menu-title text-black">Hi, </span><span class="menu-title fw-bolder text-dark">Max</span>
+											<span class="menu-title text-black">Hi, </span><span class="menu-title fw-bolder text-dark">{{ auth()->user()->email }}</span>
 											<span class="menu-arrow d-lg-none"></span>
 										</div>
 										<!--end::Theme mode docs-->
@@ -119,7 +108,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center me-n3 ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
 										<!--begin::Menu wrapper-->
 										<div class="btn btn-icon btn-active-light-primary btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-											<img class="h-30px w-30px rounded" src="https://ui-avatars.com/api/?name=Max Smith" alt="" />
+											<img class="h-30px w-30px rounded" src="https://ui-avatars.com/api/?name={{ auth()->user()->email }}" alt="" />
 										</div>
 										<!--begin::User account menu-->
 										<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -128,13 +117,13 @@ License: For each use you must have a valid license purchased only from above li
 												<div class="menu-content d-flex align-items-center px-3">
 													<!--begin::Avatar-->
 													<div class="symbol symbol-50px me-5">
-														<img alt="Logo" src="https://ui-avatars.com/api/?name=Max Smith" />
+														<img alt="Logo" src="https://ui-avatars.com/api/?name={{ auth()->user()->email }}" />
 													</div>
 													<!--end::Avatar-->
 													<!--begin::Username-->
 													<div class="d-flex flex-column">
-														<div class="fw-bolder d-flex align-items-center fs-5">Max Smith</div>
-														<a href="#" class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+														<div class="fw-bolder d-flex align-items-center fs-5">{{ auth()->user()->email }}</div>
+														<a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
 													</div>
 													<!--end::Username-->
 												</div>
@@ -151,7 +140,11 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Menu item-->
 											<!--begin::Menu item-->
 											<div class="menu-item px-5">
-												<a href="{{ route('investor.login') }}" class="menu-link px-5">Sign Out</a>
+												<a class="menu-link px-5" href="{{ route('auth.logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Sign Out</a>
+												<form id="logout-form" action="{{ route('auth.logout') }}" method="POST" class="d-none">
+													@csrf
+												</form>
 											</div>
 											<!--end::Menu item-->
 										</div>
