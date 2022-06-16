@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\UserVerify;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use Mail;
+use Session;
+use App\Mail\VerifyMail;
 
 class RegisterController extends Controller
 {
@@ -87,6 +90,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $role_id = null;
+        $token = Str::random(64);
+        $mailAddress = $data['email'];
+
+        // dd($data);
         switch (url()->previous()) {
         case Str::contains(url()->previous(), ['admin']):
             $role_id = 1;
@@ -99,11 +106,26 @@ class RegisterController extends Controller
             break;
         }
 
-        return User::create([
-            'role_id' => $role_id,
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'referral' => $data['referral'] ? $data['referral'] : null,
+        $createUser = User::create([
+            'role_id'   => $role_id,
+            'email'     => $data['email'],
+            'password'  => bcrypt($data['password']),
+            'referral'  => $data['referral'] ? $data['referral'] : null,
         ]);
+
+        UserVerify::create([
+            'user_id'   => $createUser->id, 
+            'token'     => $token
+        ]);
+
+        $mailData = [
+            'token' => $token,
+            'message' => 'This is for testing email using smtp.'
+        ];
+         
+        Mail::to($mailAddress)->send(new VerifyMail($mailData));
+
+        Session::flash('email-flash', $mailAddress);
+        
     }
 }

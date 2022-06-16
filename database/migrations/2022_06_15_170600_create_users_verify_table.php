@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('users_verify', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->foreignId('role_id')->constrained();
-            $table->rememberToken();
+            $table->uuid('user_id');
+            $table->string('token');
             $table->timestamps();
+        });
+  
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('is_email_verified')->default(0);
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('users_verify');
     }
 };

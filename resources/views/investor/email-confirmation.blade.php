@@ -19,7 +19,7 @@
 				<div class="text-dark fw-bold fs-4">First, let's verify your email
 				<!--end::Link-->
 				<!--begin::Link-->
-				<div class="text-gray-400 fw-bold fs-4">Check John.snow@gmail.com to verify your account and get started.
+				<div class="text-gray-400 fw-bold fs-4">Check {{ Session::get('email-flash') }} to verify your account and get started.
 				<!--end::Link-->
 			</div>
 			<!--end::Heading-->

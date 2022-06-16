@@ -1,11 +1,12 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\Countries;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Provinces;
 
-class ProvinceSeeder extends Seeder
+class CountriesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,16 +15,14 @@ class ProvinceSeeder extends Seeder
      */
     public function run()
     {
-        Provinces::truncate();
-
-        $file = fopen(base_path("database/data/ProvinceData.csv"), "r");
+        $file = fopen(base_path("database/data/CountriesData.csv"), "r");
 
         $firstLine = true;
         while (($data = fgetcsv($file, 2000, ";")) !== FALSE) {
             if (!$firstLine) {
-                Provinces::create([
-                    "id" => $data['0'],
-                    "name" => $data['1']
+                Countries::create([
+                    "name" => $data['0'],
+                    "phone_code" => $data['1']
                 ]);    
             }
             $firstLine = false;

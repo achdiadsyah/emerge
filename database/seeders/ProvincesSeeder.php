@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\District;
+use App\Models\Provinces;
 
-class DistrictSeeder extends Seeder
+class ProvincesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,15 +14,13 @@ class DistrictSeeder extends Seeder
      */
     public function run()
     {
-        District::truncate();
-
-        $file = fopen(base_path("database/data/DistrictData.csv"), "r");
+        $file = fopen(base_path("database/data/ProvinceData.csv"), "r");
 
         $firstLine = true;
         while (($data = fgetcsv($file, 2000, ";")) !== FALSE) {
             if (!$firstLine) {
-                District::create([
-                    "city_id" => $data['0'],
+                Provinces::create([
+                    "id" => $data['0'],
                     "name" => $data['1']
                 ]);    
             }
