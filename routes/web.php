@@ -53,5 +53,6 @@ Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('password-confirm', [ConfirmPasswordController::class, 'confirm'])->name('password-confirm');
     Route::post('password-email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password-email');
     Route::post('password-reset', [ResetPasswordController::class, 'reset'])->name('password-reset');
+    Route::get('email-verify/{token}', [VerificationController::class, 'verifyAccount'])->name('email-verify');
 });
 
