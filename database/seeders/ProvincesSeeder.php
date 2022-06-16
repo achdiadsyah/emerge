@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Provinces;
 
-class ProvinceSeeder extends Seeder
+class ProvincesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +14,6 @@ class ProvinceSeeder extends Seeder
      */
     public function run()
     {
-        Provinces::truncate();
-
         $file = fopen(base_path("database/data/ProvinceData.csv"), "r");
 
         $firstLine = true;

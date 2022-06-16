@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('startups', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('user_id');
+            $table->uuid('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('name', 255);
             $table->string('logo', 255);
             $table->string('website', 255);
-            $table->foreignId('startup_category_id');
-            $table->foreignId('countries_id');
+            $table->uuid('startup_category_id');
+            $table->foreign('startup_category_id')->references('id')->on('startup_categories');
+            $table->foreignId('country_id')->constrained();
             $table->longText('description');
             $table->json('document');
             $table->string('video_teaser', 255);
@@ -31,6 +33,7 @@ return new class extends Migration
             $table->integer('valuation');
             $table->integer('fundraising');
             $table->longText('fundraising_detail');
+            $table->longText('about_founders');
             $table->timestamps();
         });
     }

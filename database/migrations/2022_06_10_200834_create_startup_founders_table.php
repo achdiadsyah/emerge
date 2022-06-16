@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('startup_founders', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('startup_id');
+            $table->uuid('startup_id');
+            $table->foreign('startup_id')->references('id')->on('startups');
             $table->string('name', 255);
             $table->string('position');
             $table->string('linkedin', 255);

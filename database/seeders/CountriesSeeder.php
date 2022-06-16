@@ -15,8 +15,6 @@ class CountriesSeeder extends Seeder
      */
     public function run()
     {
-        Countries::truncate();
-
         $file = fopen(base_path("database/data/CountriesData.csv"), "r");
 
         $firstLine = true;
