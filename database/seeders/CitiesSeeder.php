@@ -14,8 +14,6 @@ class CitiesSeeder extends Seeder
      */
     public function run()
     {
-        Cities::truncate();
-
         $file = fopen(base_path("database/data/CitiesData.csv"), "r");
 
         $firstLine = true;

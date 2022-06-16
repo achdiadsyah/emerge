@@ -8,6 +8,9 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class RegisterController extends Controller
 {
@@ -29,7 +32,6 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -41,6 +43,24 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $this->create($request->all());
+
+        switch (url()->previous()) {
+        case Str::contains(url()->previous(), ['admin']):
+            return redirect()->route('admin.email-confirmation');
+            break;
+        case Str::contains(url()->previous(), ['investor']):
+            return redirect()->route('investor.email-confirmation');
+            break;
+        case Str::contains(url()->previous(), ['startup']):
+            return redirect()->route('startup.email-confirmation');
+            break;
+        }
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -50,10 +70,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'referral' => ['max:255'],
         ]);
+
     }
 
     /**
@@ -64,10 +85,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $role_id = null;
+        switch (url()->previous()) {
+        case Str::contains(url()->previous(), ['admin']):
+            $role_id = 1;
+            break;
+        case Str::contains(url()->previous(), ['investor']):
+            $role_id = 2;
+            break;
+        case Str::contains(url()->previous(), ['startup']):
+            $role_id = 3;
+            break;
+        }
+
         return User::create([
-            'name' => $data['name'],
+            'role_id' => $role_id,
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => bcrypt($data['password']),
+            'referral' => $data['referral'] ? $data['referral'] : null,
         ]);
     }
 }
