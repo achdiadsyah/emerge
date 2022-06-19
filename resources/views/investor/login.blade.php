@@ -34,14 +34,14 @@
 			<!--begin::Input group-->
 			<div class="fv-row mb-7">
 				<label class="form-label fw-bolder text-dark fs-6">Email</label>
-				<input class="form-control form-control-lg form-control-solid" type="email" placeholder="user@email.com" name="email" {{ old('email') }} autocomplete="off" />
+				<input class="form-control form-control-lg form-control-solid" type="email" placeholder="user@email.com" name="email" value="{{ old('email') }}" autocomplete="off" />
 				@error('email')
 				<div class="fv-plugins-message-container invalid-feedback">
-					<div data-field="email" data-validator="notEmpty">
+					<div data-field="password" data-validator="notEmpty">
 						{{ $message }}
 					</div>
 				</div>
-				@enderror	
+				@enderror
 			</div>
 			<!--end::Input group-->
 			<!--begin::Input group-->
@@ -58,13 +58,6 @@
 							<i class="bi bi-eye-slash fs-2"></i>
 							<i class="bi bi-eye fs-2 d-none"></i>
 						</span>
-						@error('password')
-						<div class="fv-plugins-message-container invalid-feedback">
-							<div data-field="password" data-validator="notEmpty">
-								{{ $message }}
-							</div>
-						</div>
-						@enderror	
 					</div>
 					<!--end::Input wrapper-->
 					
@@ -78,7 +71,7 @@
 				<div class="d-flex flex-stack mb-5">
 					<!--begin::Label-->
 					<label class="form-check form-check-custom form-check-solid form-check-inline">
-						<input class="form-check-input" type="checkbox" name="toc" value="1" />
+						<input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}/>
 						<span class="form-check-label fw-bold text-gray-700">Remember Me</span>
 					</label>
 					<!--end::Label-->
