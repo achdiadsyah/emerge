@@ -30,8 +30,11 @@ Route::get('/', function () {
 
 Route::prefix('investor')->name('investor.')->group(function(){
     Route::middleware('guest')->group(function(){
+        Route::get('detail/{page}', [InvestorAuthController::class, 'investorDetail'])->name('detail');
         Route::get('login', [InvestorAuthController::class, 'index'])->name('login');
         Route::get('register', [InvestorRegisterController::class, 'index'])->name('register');
+        Route::post('detail/{page}', [InvestorAuthController::class, 'update'])->name('detail-update');
+        
         Route::view('email-confirmation', 'investor.email-confirmation', ['title' => 'Investor - Email Confirmation'])->name('email-confirmation');
         Route::view('password-reset-request', 'investor.password-reset-request', ['title' => 'Investor - Password Reset Request'])->name('password-reset-request');
         Route::view('password-reset-sent', 'investor.password-reset-sent', ['title' => 'Investor - Password Reset Request'])->name('password-reset-sent');
