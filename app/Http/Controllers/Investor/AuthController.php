@@ -20,9 +20,6 @@ class AuthController extends Controller
             'title' => 'Investor Detail'
         );
         switch ($page) {
-            case '1':
-                $view = "Investor.investor-detail-1";
-                break;
             case '2':
                 $view = "Investor.investor-detail-2";
                 break;
@@ -43,21 +40,21 @@ class AuthController extends Controller
     {
         switch ($page) {
             case '1':
-                return $this->update_step_1($request);
+                return $this->updateStep1($request);
                 break;
             case '2':
-                return $this->update_step_2($request);
+                return $this->updateStep2($request);
                 break;
             case '3':
-                return $this->update_step_3($request);
+                return $this->updateStep3($request);
                 break;
             case '4':
-                return $this->update_step_4($request);
+                return $this->updateStep4($request);
                 break;
         }
     }
 
-    protected function update_step_1(Request $request){
+    protected function updateStep1(Request $request){
         $validated = Validator::make($request->all(), [
             'name' => ['required', 'string'],
             'country' => ['required'],
@@ -73,7 +70,7 @@ class AuthController extends Controller
         
         return redirect()->route('investor.detail', '2');
     }
-    protected function update_step_2(Request $request){
+    protected function updateStep2(Request $request){
         $validated = Validator::make($request->all(), [
             'province' => ['required'],
             'city' => ['required', 'string'],
@@ -88,7 +85,7 @@ class AuthController extends Controller
         
         return redirect()->route('investor.detail', '3');
     }
-    protected function update_step_3(Request $request){
+    protected function updateStep3(Request $request){
         $validated = Validator::make($request->all(), [
             'investing_as_individual' => ['required'],
             'annual_income_range' => ['required'],
@@ -104,7 +101,7 @@ class AuthController extends Controller
         
         return redirect()->route('investor.detail', '4');
     }
-    protected function update_step_4(Request $request){
+    protected function updateStep4(Request $request){
         // TODO: recap 
     }
 }
