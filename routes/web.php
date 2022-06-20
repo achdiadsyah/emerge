@@ -30,9 +30,9 @@ Route::get('/', function () {
 
 Route::prefix('investor')->name('investor.')->group(function(){
     Route::middleware('guest')->group(function(){
-        Route::get('detail/{page}', [InvestorAuthController::class, 'investorDetail'])->name('detail');
         Route::get('login', [InvestorAuthController::class, 'index'])->name('login');
         Route::get('register', [InvestorRegisterController::class, 'index'])->name('register');
+        Route::get('detail/{page}', [InvestorAuthController::class, 'investorDetail'])->name('detail');
         Route::post('detail/{page}', [InvestorAuthController::class, 'update'])->name('detail-update');
         
         Route::view('email-confirmation', 'investor.email-confirmation', ['title' => 'Investor - Email Confirmation'])->name('email-confirmation');
